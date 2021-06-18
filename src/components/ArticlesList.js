@@ -2,10 +2,9 @@
 
 const ArticlesList = ({allArticles, searchTerm}) => {
 
-    console.log(`All articles log: ${allArticles}`)
-
     const articles = allArticles.map((article, index) => {
-        return <li key={index}>{article.webTitle}</li>
+        console.log(article.webUrl)
+        return <li key={index}><a href={article.webUrl}>{article.webTitle}</a></li>
     })
     
 
