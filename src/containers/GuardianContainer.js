@@ -1,5 +1,6 @@
 import SearchArticles from "../components/SearchArticles";
 import { useEffect, useState } from "react";
+import ArticlesList from "../components/ArticlesList";
 
 const GuardianContainer = () => {
 
@@ -19,10 +20,12 @@ const GuardianContainer = () => {
         getArticles();
     }, [searchTerm])
 
-
-
     return (
-        <SearchArticles onSearchChange={onSearchChange}/>
+        <>
+            <SearchArticles onSearchChange={onSearchChange}/>
+            <ArticlesList allArticles={allArticles}/>
+        </>
+
     )
 }
 
