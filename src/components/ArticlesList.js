@@ -1,9 +1,11 @@
 
 
-const ArticlesList = ({articlesList}) => {
+const ArticlesList = ({allArticles, searchTerm}) => {
 
-    const articles = articlesList.map(article => {
-        return <li>{article}</li>
+    console.log(`All articles log: ${allArticles}`)
+
+    const articles = allArticles.map((article, index) => {
+        return <li key={index}>{article.webTitle}</li>
     })
     
 
@@ -11,7 +13,7 @@ const ArticlesList = ({articlesList}) => {
         <>
         <p>All Articles</p>
         <ul>
-        {articles}
+            {articles}
         </ul>
         </>
     )
