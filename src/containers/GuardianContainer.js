@@ -10,7 +10,6 @@ const GuardianContainer = () => {
     }
 
 
-
     return (
         <SearchArticles onSearchChange={onSearchChange}/>
     )

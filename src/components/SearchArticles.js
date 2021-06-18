@@ -1,9 +1,10 @@
 
-const SearchArticles = (onSearchChange) => {
+const SearchArticles = ({onSearchChange}) => {
 
     const handleSearchChange = (event) => {
-        console.log(event.target.value)
-        onSearchChange(event.target.value)
+        event.preventDefault()
+        const searchTerm = event.target[0].value
+        onSearchChange(searchTerm)
     }
 
 
@@ -12,7 +13,7 @@ const SearchArticles = (onSearchChange) => {
     <h1>Guardian Search</h1>
     <form onSubmit={handleSearchChange}>
     <label>Search for Guardian articles: </label>
-    <input type="text" id="search" placeholder="Search Term"></input>
+    <input type="text" id="search" name="search" placeholder="Search Term"></input>
     <input type="submit"></input>
     </form>
     </>
