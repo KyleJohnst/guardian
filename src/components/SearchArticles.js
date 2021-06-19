@@ -5,7 +5,6 @@ const SearchArticles = ({onSearchChange}) => {
         event.preventDefault()
         const searchTerm = event.target[0].value
         onSearchChange(searchTerm)
-        console.log(`Search term is: ${searchTerm}`)
     }
 
 

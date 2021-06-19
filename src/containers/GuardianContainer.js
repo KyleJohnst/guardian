@@ -1,15 +1,26 @@
 import SearchArticles from "../components/SearchArticles";
 import { useEffect, useState, useRef } from "react";
 import ArticlesList from "../components/ArticlesList";
+import Interests from "../components/Interests";
+import SetInterests from "../components/SetInterests";
+// import NavBar from "../components/NavBar";
+
 
 const GuardianContainer = () => {
 
     const [searchTerm, setSearchTerm] = useState(null);
     const [allArticles, setAllArticles] = useState(null);
-    const [recentSearches, setRecentSearches] = useState([]);
+    const [yourInterests, setYourInterests] = useState([]);
+    
 
     const onSearchChange = (search) => {
       setSearchTerm(search)
+    }
+
+    const onInterestChange = (interest) => {
+            setYourInterests([...yourInterests, interest])
+            console.log("yourInterests: ")
+            console.log(yourInterests)
     }
 
     const getArticles = () => {
@@ -27,6 +38,8 @@ const GuardianContainer = () => {
         <>
             <SearchArticles onSearchChange={onSearchChange}/>
             {allArticles ? <ArticlesList allArticles={allArticles} searchTerm={searchTerm}/> : null}
+            <SetInterests onInterestChange={onInterestChange}/>
+            <Interests yourInterests={yourInterests}/>
         </>
 
     )
