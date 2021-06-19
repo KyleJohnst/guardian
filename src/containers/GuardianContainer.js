@@ -18,9 +18,8 @@ const GuardianContainer = () => {
     }
 
     const onInterestChange = (interest) => {
+        if(!yourInterests.includes(interest))
             setYourInterests([...yourInterests, interest])
-            console.log("yourInterests: ")
-            console.log(yourInterests)
     }
 
     const getArticles = () => {

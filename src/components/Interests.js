@@ -8,11 +8,10 @@ const Interests = ({yourInterests}) => {
             return <p>You have not set any interests yet</p>
         } else {
             for(let  i = 0; i < yourInterests.length; i++){
-                console.log(yourInterests[i])
                 interests.push(yourInterests[i])
             }
             const returnInterests = interests.map((interest, index) => {
-                return <p key={index}>{interest}</p>
+                return <section key={index}>{interest}</section>
             })
             return returnInterests
             }
