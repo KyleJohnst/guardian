@@ -3,6 +3,7 @@ import { useEffect, useState, useRef } from "react";
 import ArticlesList from "../components/ArticlesList";
 import Interests from "../components/Interests";
 import SetInterests from "../components/SetInterests";
+import PersonalFeed from "../components/PersonalFeed";
 // import NavBar from "../components/NavBar";
 
 
@@ -11,6 +12,7 @@ const GuardianContainer = () => {
     const [searchTerm, setSearchTerm] = useState(null);
     const [allArticles, setAllArticles] = useState(null);
     const [yourInterests, setYourInterests] = useState([]);
+    const [interestArticles, setInterestArticles] = useState([]);
     
 
     const onSearchChange = (search) => {
@@ -29,9 +31,25 @@ const GuardianContainer = () => {
         }
     }
 
+    const getPersonalFeedArticles = () => {
+        if(yourInterests.length > 0){
+            for(let i = 0; i < yourInterests.length; i++){
+                let searchKey = yourInterests[i]
+                fetch(`https://content.guardianapis.com/search?q=${searchKey}&format=json&api-key=test`)
+                .then(results => results.json()).then(articles => setInterestArticles([...interestArticles, articles.response.results]))
+            }
+        }
+    }
+
     useEffect(() => {
         getArticles();
     }, [searchTerm])
+
+    useEffect(() => {
+        getPersonalFeedArticles();
+    }, [yourInterests])
+
+    console.log(interestArticles)
 
     return (
         <>
@@ -39,6 +57,7 @@ const GuardianContainer = () => {
             {allArticles ? <ArticlesList allArticles={allArticles} searchTerm={searchTerm}/> : null}
             <SetInterests onInterestChange={onInterestChange}/>
             <Interests yourInterests={yourInterests}/>
+            {interestArticles ? <PersonalFeed interestArticles={interestArticles} yourInterests={yourInterests}/> : null}
         </>
 
     )
