@@ -20,7 +20,9 @@ const Interests = ({yourInterests}) => {
     return (
         <>
     <h4 className="centre-text">Your Interests</h4>
+    <div className="yourInterests">
     {getInterests()}
+    </div>
     </>
     )
 }

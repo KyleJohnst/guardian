@@ -47,7 +47,6 @@
   display: flex;
   flex-wrap: wrap;
   margin: 50px;
-
 }
 
 h1{
@@ -76,6 +75,11 @@ h1{
 
 .searchList{
   height: 110px;
+  overflow: auto;
+}
+
+.yourInterests{
+  height: 100px;
   overflow: auto;
 }
 
