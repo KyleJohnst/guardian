@@ -32,7 +32,6 @@ const GuardianContainer = () => {
     const getPersonalFeedArticles = () => {
 
         const lastInterest = yourInterests[yourInterests.length - 1]
-        console.log(lastInterest)
 
         if(yourInterests.includes(lastInterest)){
             for(let i = 0; i <= yourInterests.length; i++){
@@ -69,7 +68,6 @@ const GuardianContainer = () => {
             <Interests yourInterests={yourInterests}/>
         </div>
         </div>
-            
             {renderPersonalFeed()}
         </>
 
