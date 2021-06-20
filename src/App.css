@@ -59,10 +59,14 @@ h1{
   height: 250px;
   padding-left: 10px;
 }
-/* .searchForm{
-  padding-top: 10px;
+
+.addFavourites{
+  background-color: rgb(231, 228, 228);
+  margin-left: 25px;
+  width: 45%;
+  height: 250px;
   padding-left: 10px;
-} */
+}
 
 .firstSection{
   display: flex;
