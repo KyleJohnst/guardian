@@ -36,3 +36,13 @@
     transform: rotate(360deg);
   }
 }
+
+.feedArticle{
+  margin: 10px;
+  width: 40%;
+  background-color: red;
+}
+
+.newsFeedBoxes{
+  display: flex;
+}

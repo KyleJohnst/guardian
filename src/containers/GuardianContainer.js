@@ -62,7 +62,6 @@ const GuardianContainer = () => {
             <SetInterests onInterestChange={onInterestChange}/>
             <Interests yourInterests={yourInterests}/>
             {renderPersonalFeed()}
-            {/* {interestArticles ? <PersonalFeed interestArticles={interestArticles} yourInterests={yourInterests}/> : null} */}
         </>
 
     )

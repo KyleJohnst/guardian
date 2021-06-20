@@ -26,8 +26,10 @@ const PersonalFeed = ({interestArticles, yourInterests}) => {
     
     return (
         <>
-        <p>Personal Feed Displaying</p>
+        <h2>Your personalised newsfeed</h2>
+        <div className="newsFeedBoxes">
         {articlesBoxes}
+        </div>
         </>
     )
 }
