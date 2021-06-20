@@ -15,7 +15,7 @@ const PersonalFeed = ({interestArticles, yourInterests}) => {
             <>          
                 <div className="feedArticle">
                     <h4>Articles related to {yourInterests[i]}</h4>
-                        <ul>
+                        <ul className="interestArticlesList">
                             {getArticles(interestArticles[i])}
                         </ul>
                 </div>

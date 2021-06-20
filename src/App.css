@@ -38,15 +38,23 @@
 }
 
 .feedArticle{
-  margin: 10px;
-  width: 40%;
+  padding: 10px;
+  margin-bottom: 25px;
+  margin-left: 25px;
+  width: 45%;
+  height: 250px;
   background-color: rgb(224, 222, 222);
+}
+
+.interestArticlesList{
+  height: 180px;
+  overflow: auto;
 }
 
 .newsFeedBoxes{
   display: flex;
   flex-wrap: wrap;
-  margin: 50px;
+  margin-bottom: 10px;
 }
 
 h1{
