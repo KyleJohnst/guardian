@@ -10,7 +10,7 @@ const SetInterests = ({onInterestChange}) => {
     return (
         <>
         <div className="addFavourites">
-            <h3>Add interest to your favourites</h3>
+            <h3>What are you interested in</h3>
             <form onSubmit={setNewInterest}>
             <label>New Interest: </label>
             <input type="text" placeholder="New Interest" id="newInterest" name="newInterest"></input>

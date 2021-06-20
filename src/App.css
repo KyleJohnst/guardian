@@ -60,7 +60,7 @@ h1{
   padding-left: 10px;
 }
 
-.addFavourites{
+.favouritesSection{
   background-color: rgb(231, 228, 228);
   margin-left: 25px;
   width: 45%;
@@ -75,4 +75,8 @@ h1{
 .searchList{
   height: 110px;
   overflow: auto;
+}
+
+h2{
+  text-align: center;
 }

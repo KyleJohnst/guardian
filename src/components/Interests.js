@@ -19,7 +19,7 @@ const Interests = ({yourInterests}) => {
     
     return (
         <>
-    <h2>Your Interests</h2>
+    <h4 className="centre-text">Your Interests</h4>
     {getInterests()}
     </>
     )
