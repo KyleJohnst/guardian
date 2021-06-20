@@ -30,7 +30,11 @@ const GuardianContainer = () => {
     }
 
     const getPersonalFeedArticles = () => {
-        if(yourInterests.length > 0){
+
+        const lastInterest = yourInterests[yourInterests.length - 1]
+        console.log(lastInterest)
+
+        if(yourInterests.includes(lastInterest)){
             for(let i = 0; i <= yourInterests.length; i++){
                 let searchKey = yourInterests[i]
                 fetch(`https://content.guardianapis.com/search?q=${searchKey}&format=json&api-key=test`)
