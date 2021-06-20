@@ -57,9 +57,13 @@ const GuardianContainer = () => {
 
     return (
         <>
+        <div className="firstSection">
+        <div className="articleSearch">
             <SearchArticles onSearchChange={onSearchChange}/>
             {allArticles ? <ArticlesList allArticles={allArticles} searchTerm={searchTerm}/> : null}
+        </div>
             <SetInterests onInterestChange={onInterestChange}/>
+        </div>
             <Interests yourInterests={yourInterests}/>
             {renderPersonalFeed()}
         </>

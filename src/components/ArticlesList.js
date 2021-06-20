@@ -10,7 +10,7 @@ const ArticlesList = ({allArticles, searchTerm}) => {
     return(
         <>
         <p>Articles related to {searchTerm}</p>
-        <ul>
+        <ul className="searchList">
             {articles}
         </ul>
         </>

@@ -40,9 +40,35 @@
 .feedArticle{
   margin: 10px;
   width: 40%;
-  background-color: red;
+  background-color: rgb(224, 222, 222);
 }
 
 .newsFeedBoxes{
   display: flex;
+
+}
+
+h1{
+  text-align: center;
+}
+
+.articleSearch{
+  background-color: rgb(231, 228, 228);
+  margin-left: 25px;
+  width: 45%;
+  height: 250px;
+  padding-left: 10px;
+}
+/* .searchForm{
+  padding-top: 10px;
+  padding-left: 10px;
+} */
+
+.firstSection{
+  display: flex;
+}
+
+.searchList{
+  height: 110px;
+  overflow: auto;
 }

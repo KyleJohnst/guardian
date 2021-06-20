@@ -4,7 +4,7 @@ const PersonalFeed = ({interestArticles, yourInterests}) => {
 
         const getArticles = (specificInterest) => {
             let displayTitles = specificInterest.map((article, index) => {
-                return <li key={index}>{article.webTitle}</li>
+                return <li key={index}><a href={article.webUrl}>{article.webTitle}</a></li>
             })
             return displayTitles
             }
