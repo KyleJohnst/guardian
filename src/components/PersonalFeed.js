@@ -1,10 +1,6 @@
 const PersonalFeed = ({interestArticles, yourInterests}) => {
 
-    const getFeed = (interestArticles, yourInterests) => {
-
-        console.log(interestArticles)
-
-        let articlesBoxes = []
+    let articlesBoxes = []
 
         const getArticles = (specificInterest) => {
             let displayTitles = specificInterest.map((article, index) => {
@@ -13,7 +9,6 @@ const PersonalFeed = ({interestArticles, yourInterests}) => {
             return displayTitles
             }
         
-        if(interestArticles){
             for(let i = 0; i < interestArticles.length; i++){
             let newArticle = 
             (
@@ -28,14 +23,11 @@ const PersonalFeed = ({interestArticles, yourInterests}) => {
         )
         articlesBoxes.push(newArticle)
     }
-}
-
-    return articlesBoxes
-    }
     
     return (
         <>
-        {getFeed()}
+        <p>Personal Feed Displaying</p>
+        {articlesBoxes}
         </>
     )
 }
