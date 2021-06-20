@@ -4,8 +4,6 @@ import ArticlesList from "../components/ArticlesList";
 import Interests from "../components/Interests";
 import SetInterests from "../components/SetInterests";
 import PersonalFeed from "../components/PersonalFeed";
-// import NavBar from "../components/NavBar";
-
 
 const GuardianContainer = () => {
 
