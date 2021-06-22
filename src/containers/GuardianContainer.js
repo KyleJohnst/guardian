@@ -1,0 +1,94 @@
+import SearchArticles from "../components/SearchArticles";
+import { useEffect, useState } from "react";
+import ArticlesList from "../components/ArticlesList";
+import Interests from "../components/Interests";
+import SetInterests from "../components/SetInterests";
+import PersonalFeed from "../components/PersonalFeed";
+
+const GuardianContainer = () => {
+  const [searchTerm, setSearchTerm] = useState(null);
+  const [allArticles, setAllArticles] = useState(null);
+  const [yourInterests, setYourInterests] = useState([]);
+  const [interestArticles, setInterestArticles] = useState([]);
+
+  const onSearchChange = (search) => {
+    setSearchTerm(search);
+  };
+
+  const onInterestChange = (interest) => {
+    if (!yourInterests.includes(interest))
+      setYourInterests([...yourInterests, interest]);
+  };
+
+  const getArticles = () => {
+    if (searchTerm) {
+      fetch(
+        `https://content.guardianapis.com/search?q=${searchTerm}&format=json&api-key=test`
+      )
+        .then((results) => results.json())
+        .then((articles) => setAllArticles(articles.response.results));
+    }
+  };
+
+  const InterestArticlesApiCall = (interest) => {
+    fetch(
+      `https://content.guardianapis.com/search?q=${interest}&format=json&api-key=test`
+    )
+      .then((res) => {
+        if (res.ok) {
+          return res.json();
+        } else {
+          console.log("Failed to fetch", interest);
+        }
+      })
+      .then((resJson) => {
+        setInterestArticles((prev) => ({
+          ...prev,
+          [interest.toLowerCase()]: resJson.response.results,
+        }));
+      });
+  };
+
+  const getPersonalFeedArticles = () => {
+    yourInterests.forEach((interest) => InterestArticlesApiCall(interest));
+  };
+
+  useEffect(() => {
+    getArticles();
+  }, [searchTerm]);
+
+  useEffect(() => {
+    getPersonalFeedArticles();
+  }, [yourInterests]);
+
+  const renderPersonalFeed = () => {
+    if (Object.keys(interestArticles).length > 0) {
+      return (
+        <PersonalFeed
+          interestArticles={interestArticles}
+          yourInterests={yourInterests}
+        />
+      );
+    }
+  };
+
+  return (
+    <>
+      <div className="firstSection">
+        <div className="articleSearch">
+          <SearchArticles onSearchChange={onSearchChange} />
+          {allArticles ? (
+            <ArticlesList allArticles={allArticles} searchTerm={searchTerm} />
+          ) : null}
+        </div>
+        <div className="favouritesSection">
+          <SetInterests onInterestChange={onInterestChange} />
+          <Interests yourInterests={yourInterests} />
+        </div>
+      </div>
+      {renderPersonalFeed()}
+    </>
+  );
+};
+
+export default GuardianContainer;
